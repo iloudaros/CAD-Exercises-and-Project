@@ -1,0 +1,78 @@
+AutoECO Report
+FILE-A: C:\DOCUMENTS AND SETTINGS\TASOS\DESKTOP\4\DESIGN1.MAX
+FILE-B: C:\DOCUMENTS AND SETTINGS\TASOS\DESKTOP\4\DESIGN1.MNL
+If "*EOF*" immediately follows, no changes were made
+Adding package 74ACT244
+Adding package 74ACT175
+Adding package CONNECTOR_DB25
+Adding package HEADER_2
+Adding package 74ACT283
+Adding package CAP_NP
+Adding package CAP
+Adding component U1
+Found footprint DIP.100/20/W.300/L1.050 from PRT file for part 74ACT244, comp U1
+Adding component U5
+Found footprint SOJ.050/16/WB.300/L.400 from PRT file for part 74ACT175, comp U5
+Adding component U2
+Adding component U7
+Adding component U4
+Adding component P1
+Found footprint DSUB/VP/TM/25 from PRT file for part CONNECTOR_DB25, comp P1
+Adding component JP1
+Found footprint JUMPER200 from PRT file for part HEADER_2, comp JP1
+Adding component U6
+Adding component U3
+Adding component C6
+Found footprint SM/C_1206 from PRT file for part CAP_NP, comp C6
+Adding component C5
+Adding component C4
+Adding component C3
+Adding component C2
+Adding component C1
+Found footprint CPCYL1/D.300/LS.200/.034 from PRT file for part CAP, comp C1
+Adding component C8
+Adding component C7
+Adding net DOUT4
+Adding net PD7
+Adding net PD0
+Adding net PD3
+Adding net PD1
+Adding net PD5
+Adding net PD2
+Adding net PD6
+Adding net PD4
+Adding net DIN0
+Adding net DIN6
+Adding net DIN4
+Adding net GND
+Adding net DIN1
+Adding net DIN7
+Adding net DIN2
+Adding net DIN5
+Adding net DIN3
+Adding net N04974
+Adding net N05012
+Adding net N05132
+Adding net N05255
+Adding net N05737
+Adding net N05778
+Adding net N05907
+Adding net N06039
+Adding net VCC
+Adding net N06305
+Adding net DOUT6
+Adding net DOUT2
+Adding net DOUT3
+Adding net DOUT7
+Adding net DOUT0
+Adding net DOUT5
+Adding net DOUT1
+Adding net PWEN
+Adding net PCLK
+Adding net PREN
+Adding net WEN
+Adding net CLK
+Adding net REN
+Deleting net DEFAULT
+*EOF*
+No errors found

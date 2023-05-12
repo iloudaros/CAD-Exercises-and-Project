@@ -1,0 +1,135 @@
+(ExpressProject "hasp_simulation"
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\TTL.OLB"
+        (Type "Schematic Library"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\PCBDEV.OLB"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File ".\design2.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs"
+    (File ".\design2.drc"
+      (Type "Report")))
+  (Folder "Referenced Projects")
+  (Folder "Simulation Resources"
+    (Folder "In Design"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ORCOMP.VHD"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\design2.vhd"
+        (Type "VHDL Netlist")
+        (FromUpdateSimFolder "yes"))
+      (File ".\stimulus.stm"
+        (Type "Simulate Stimulus"))
+      (Document 5 ".\stimulus.stm"
+        (Window "44 0 1 -1 -1 -4 -30 116 1238 107 572"))
+      (Document 0
+        (Signal "schematic1" "pwen" 4 0)
+        (Signal "schematic1" "pren" 4 0)
+        (Signal "schematic1" "pclk" 4 0)
+        (Signal "schematic1" "din" 4 0)
+        (Signal "schematic1" "dout" 4 0)
+        (Signal "schematic1" "wen" 4 0)
+        (Signal "schematic1" "gnd" 4 0)
+        (Signal "schematic1" "vcc" 4 0)
+        (Signal "schematic1" "ren" 4 0)
+        (Signal "schematic1" "clk" 4 0)
+        (Signal "schematic1" "orcad_unused" 4 0)
+        (Signal "schematic1" "NUMBER_1" 4 0)
+        (Signal "schematic1" "NUMBER_2" 4 0)
+        (Signal "schematic1" "pdi" 4 0)
+        (Window "44 2 3 -1 -1 -4 -30 0 1202 0 556"))
+      (Group "schematic1" "NUMBER_1"
+        (Signal "schematic1" "number_1_0")
+        (Signal "schematic1" "number_1_1")
+        (Signal "schematic1" "number_1_2")
+        (Signal "schematic1" "number_1_3"))
+      (Group "schematic1" "NUMBER_2"
+        (Signal "schematic1" "number_2_0")
+        (Signal "schematic1" "number_2_1")
+        (Signal "schematic1" "number_2_2")
+        (Signal "schematic1" "number_2_3"))
+      (Options
+        (AssertBeep 1)
+        (AssertLog 1)
+        (AssertMsg 1)
+        (AssertStop 1)
+        (BreakBeep 1)
+        (BreakLog 1)
+        (BreakMessage 1)
+        (BreakStop 1)
+        (FileOpen
+           "C:\Documents and Settings\tasos\Desktop\Liseis\ask4\ask4_simulation")
+        (InstructionStep 1)
+        (InteractiveUpdate 0)
+        (ITCEnabled 0)
+        (ListDisplayTop 1)
+        (LogTimeStamp 1)
+        (MiscOptLastPage 0)
+        (PlaAddToProject 1)
+        (PlaClockToOutput 0)
+        (PlaCombinational 0)
+        (PlaResolution -1)
+        (PlaSetupTime 0)
+        (PlaSpeedGrade 15)
+        (PlaTriStateEnable 0)
+        (Radix 5)
+        (RunResolution 2)
+        (RunTime 10000)
+        (SDFTiming 1)
+        (TimeCursorSnap 0)
+        (TimingBeep 0)
+        (TimingLog 1)
+        (TimingMsg 0)
+        (TimingStop 0)
+        (VHDLStandard 1)
+        (WaveDisplayTop 1)))
+    (Folder "Compiled"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ORCOMP.VHD"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\design2.vhd"
+        (Type "VHDL Netlist")
+        (FromUpdateSimFolder "yes")))
+    (Folder "Timed"
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"
+        (Type "VHDL SimModel"))
+      (File "C:\ORCADWIN\EXPRESS\LIBRARY\ORCOMP.VHD"
+        (Type "VHDL SimModel"))
+      (File ".\indesign\design2.vhd"
+        (Type "VHDL Netlist")
+        (FromUpdateSimFolder "yes")))
+    (DefaultFolder "In Design")
+    (LastModified "Fri May 12 12:16:13 2023"))
+  (GlobalState
+    (Physical 0)
+    (FileView
+      (Path "Design Resources")
+      (Path "Outputs")
+      (Path "Simulation Resources")
+      (Path "Simulation Resources" "In Design")
+      (Path "Simulation Resources" "Compiled")
+      (Path "Simulation Resources" "Timed")
+      (Path "Simulation Resources" "Timed"
+         "C:\ORCADWIN\EXPRESS\LIBRARY\ACT.VHD"))
+    (HierarchyView)
+    (Document
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 2 202 26 457"))
+      (Tab 0))
+    (Document
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 2 3 -1 -1 -4 -30 44 1166 58 523")
+        (Scroll "908 444")
+        (Zoom "200"))
+      (Path "C:\DOCUMENTS AND SETTINGS\TASOS\DESKTOP\4\DESIGN2.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1"))))
