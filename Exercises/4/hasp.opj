@@ -35,10 +35,21 @@
     (Physical 0)
     (FileView
       (Path "Design Resources")
-      (Path "Outputs"))
+      (Path "Outputs")
+      (Select "Design Resources"
+         "C:\Documents and Settings\tasos\Desktop\4\design1.dsn"))
     (HierarchyView)
     (Document
       (Type "COrCapturePMDoc")
       (Frame
-        (Placement "44 2 3 -1 -1 -4 -30 0 200 0 431"))
-      (Tab 0))))
+        (Placement "44 0 1 -1 -1 -4 -30 0 200 0 431"))
+      (Tab 0))
+    (Document
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -4 -30 220 1188 113 641")
+        (Scroll "0 0")
+        (Zoom "200"))
+      (Path "C:\DOCUMENTS AND SETTINGS\TASOS\DESKTOP\4\DESIGN1.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "ORIGINAL DESIGN"))))
