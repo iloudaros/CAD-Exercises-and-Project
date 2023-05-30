@@ -27,13 +27,14 @@ initial begin
 
     if (!error) $display("Load works correctly");
     else $display("Load test ended with %d errors", error);
-    l=0;
+    
 
 
     //clr test 
     data_in = 8'b11111111;
     error = 0;
     #10;
+    l=0;
     clr = 1;
     #10 clr = 0;
     if (count) error = 1; 

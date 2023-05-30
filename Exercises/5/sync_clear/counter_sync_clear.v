@@ -1,4 +1,4 @@
-module counter (clear, clock, load, start_stop, count, data);
+module counter_sync_clear (clear, clock, load, start_stop, count, data);
 
   parameter size = 4;
 
