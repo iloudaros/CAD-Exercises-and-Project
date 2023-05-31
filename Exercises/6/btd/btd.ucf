@@ -1,0 +1,12 @@
+net data_in<3> loc=k4;
+net data_in<2> loc=k3;
+net data_in<1> loc=k2;
+net data_in<0> loc=j4;
+net representation<6> loc=r10;
+net representation<5> loc=t7;
+net representation<4> loc=p10;
+net representation<3> loc=r7;
+net representation<2> loc=n6;
+net representation<1> loc=m11;
+net representation<0> loc=m6;
+net sign loc=n11;

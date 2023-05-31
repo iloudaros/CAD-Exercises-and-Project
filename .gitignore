@@ -51,6 +51,5 @@ Exercises/5/delay/counter_delay_tb.v
 *.projectmgr
 *.xreport
 *.xbcd
-*.ucf
 *.html
 
