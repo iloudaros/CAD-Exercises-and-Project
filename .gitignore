@@ -53,3 +53,12 @@ Exercises/5/delay/counter_delay_tb.v
 *.xbcd
 *.html
 
+*.didat
+*.obj
+*.c
+Exercises/7/OneHertz/isim/testOneHertz_isim_beh.exe.sim/tmp_save/_1
+*.exe
+*.cmd
+*.dbg
+*.sdb
+*.wdb
