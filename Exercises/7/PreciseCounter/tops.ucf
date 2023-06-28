@@ -16,3 +16,13 @@ net right<1> loc=g3;
 net right<0> loc=g1;
 net pause loc=k3;
 
+net led<0> loc=j14;
+net led<1> loc=j16;
+net led<2> loc=h15;
+net led<3> loc=j13;
+net led<4> loc=l15;
+net led<5> loc=t13;
+net led<6> loc=n1;
+net led<7> loc=m3;
+net led<8> loc=n2;
+net led<9> loc=l5;

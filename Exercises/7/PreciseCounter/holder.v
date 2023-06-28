@@ -19,12 +19,12 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module holder(
-    input [6:0] data_in ,
+    input [10:0] data_in ,
 	 input clk,rst,pause,
-    output [6:0] data_out
+    output [10:0] data_out
     );
 	 
-	 reg [6:0] hold_reg;
+	 reg [10:0] hold_reg;
 	 
 	 always @(posedge rst or posedge clk)begin 
 		if (rst) hold_reg <= 0;
