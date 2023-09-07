@@ -1,0 +1,21 @@
+net clk loc=t9;
+net reset loc=k4;
+net ps2clk loc=b16;
+net ps2data loc=e13;
+net left_o<7> loc=n15;
+net left_o<6> loc=h14;
+net left_o<5> loc=m4;
+net left_o<4> loc=p1;
+net left_o<3> loc=n3;
+net left_o<2> loc=m15;
+net left_o<1> loc=h13;
+net left_o<0> loc=g16;
+
+net right_o<7> loc=h4;
+net right_o<6> loc=e2;
+net right_o<5> loc=e1;
+net right_o<4> loc=f3;
+net right_o<3> loc=f2;
+net right_o<2> loc=g4; 
+net right_o<1> loc=g3;
+net right_o<0> loc=g1;

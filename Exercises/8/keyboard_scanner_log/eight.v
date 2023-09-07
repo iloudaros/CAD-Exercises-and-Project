@@ -1,14 +1,15 @@
-module kbd_protocol (reset, clk, ps2clk, ps2data, scancode);
+module kbd_protocol (reset, clk, ps2clk, ps2data, scancode, ready);
   input        reset, clk, ps2clk, ps2data;
   output [7:0] scancode;
   reg    [7:0] scancode;
+  output reg ready;
   
   // Synchronize ps2clk to local clock and check for falling edge;
   reg    [7:0] ps2clksamples; // Stores last 8 ps2clk samples
 
   always @(posedge clk or posedge reset)
     if (reset) ps2clksamples <= 8'd0;
-      else ps2clksamples <= {ps2clksamples[7:0], ps2clk};
+	       else ps2clksamples <= {ps2clksamples[7:0], ps2clk};
 
   wire fall_edge; // indicates a falling_edge at ps2clk
   assign fall_edge = (ps2clksamples[7:4] == 4'hF) & (ps2clksamples[3:0] == 4'h0);
@@ -30,9 +31,11 @@ module kbd_protocol (reset, clk, ps2clk, ps2data, scancode);
         scancode <= 8'd0;
         shift    <= 10'd0;
         f0       <= 1'b0;
+		  ready <= 0;
       end  
      else if (fall_edge)
          begin
+			ready <=0;
            if (cnt == 4'd10) // we just received what should be the stop bit
              begin
                cnt <= 0;
@@ -40,6 +43,7 @@ module kbd_protocol (reset, clk, ps2clk, ps2data, scancode);
                  begin
                    if (f0) // following a scancode of f0. So a key is released ! 
                      begin
+							ready <= 1;
                        scancode <= shift[8:1];
                        f0 <= 0;
                      end
@@ -54,7 +58,18 @@ module kbd_protocol (reset, clk, ps2clk, ps2data, scancode);
          end
 endmodule
 
+module scan_log(data_in, ready, left, right);
+input [7:0] data_in;
+input ready;
 
+output reg [7:0]  left, right;
+
+always @(posedge ready) 
+begin
+	left<=data_in;
+	right<=left;
+end
+endmodule
 
 module scan_2_7seg (scan, ss);
   input  [7:0] scan;
@@ -75,12 +90,18 @@ endmodule
 
 
 
-module eight (reset, clk, ps2clk, ps2data, left);
+module eight (reset, clk, ps2clk, ps2data, left_o, right_o);
   input        reset, clk;
   input        ps2clk, ps2data;
-  output [7:0] left;
+  output [7:0] left_o;
+  output [7:0] right_o;
   wire   [7:0] scan;
   
-  kbd_protocol kbd (reset, clk, ps2clk, ps2data, scan);
-  scan_2_7seg  lft (scan, left);
+  wire [7:0] right,left;
+  
+  kbd_protocol kbd (reset, clk, ps2clk, ps2data, scan, ready);
+  scan_log log (scan, ready, left, right); 
+  scan_2_7seg  lft (left, left_o);
+  scan_2_7seg  rgt (right, right_o);
+  
 endmodule
