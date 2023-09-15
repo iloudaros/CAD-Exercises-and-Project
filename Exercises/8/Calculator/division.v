@@ -36,7 +36,7 @@ module division(
 		quotient_temp = 4'b0;
 		remainder_temp = divident;
 	 
-		for(i=0; i<4; i = i+1) begin 
+		 for(i=0; i<9; i = i+1) begin 
 		
 			if (remainder_temp >= divisor) begin
 				quotient_temp = quotient_temp + 1;
