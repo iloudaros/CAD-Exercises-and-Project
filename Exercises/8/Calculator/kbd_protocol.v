@@ -1,8 +1,9 @@
-module kbd_protocol (reset, clk, ps2clk, ps2data, scancode, ready);
+module kbd_protocol (reset, clk, ps2clk, ps2data, scancode, ready, is_number);
   input        reset, clk, ps2clk, ps2data;
   output [7:0] scancode;
   reg    [7:0] scancode;
   output reg ready;
+  output reg is_number;
   
   // Synchronize ps2clk to local clock and check for falling edge;
   reg    [7:0] ps2clksamples; // Stores last 8 ps2clk samples
@@ -27,15 +28,17 @@ module kbd_protocol (reset, clk, ps2clk, ps2data, scancode, ready);
   always @(posedge clk or posedge reset)
     if (reset) 
       begin
-        cnt    <= 4'd0;
-        scancode <= 8'd0;
-        shift    <= 10'd0;
-        f0       <= 1'b0;
-		  ready <= 0;
+        cnt       <= 4'd0;
+        scancode  <= 8'd0;
+        shift     <= 10'd0;
+        f0        <= 1'b0;
+		  ready     <= 0;
+		  is_number <= 1;
       end  
      else if (fall_edge)
          begin
-			ready <=0;
+			ready <= 0;
+			is_number <= 1;
            if (cnt == 4'd10) // we just received what should be the stop bit
              begin
                cnt <= 0;
@@ -43,8 +46,10 @@ module kbd_protocol (reset, clk, ps2clk, ps2data, scancode, ready);
                  begin
                    if (f0) // following a scancode of f0. So a key is released ! 
                      begin
-							ready <= 1;
                        scancode <= shift[8:1];
+							  if (shift[8:1] == 8'h79 | shift[8:1] == 8'h4A | shift[8:1] == 8'h7B | shift[8:1] == 8'h7C) is_number <= 0;
+							  ready <= 1;
+							  
                        f0 <= 0;
                      end
                     else if (shift[8:1] == 8'hF0) f0 <= 1'b1;

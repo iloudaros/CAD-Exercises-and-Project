@@ -2,6 +2,7 @@ net clk loc=t9;
 net reset loc=k4;
 net ps2clk loc=b16;
 net ps2data loc=e13;
+
 net left_o<7> loc=n15;
 net left_o<6> loc=h14;
 net left_o<5> loc=m4;
@@ -19,3 +20,13 @@ net right_o<3> loc=f2;
 net right_o<2> loc=g4; 
 net right_o<1> loc=g3;
 net right_o<0> loc=g1;
+
+net encoded_result<6> loc=r10;
+net encoded_result<5> loc=t7;
+net encoded_result<4> loc=p10;
+net encoded_result<3> loc=r7;
+net encoded_result<2> loc=n6;
+net encoded_result<1> loc=m11;
+net encoded_result<0> loc=m6;
+
+net sign loc=n11;
