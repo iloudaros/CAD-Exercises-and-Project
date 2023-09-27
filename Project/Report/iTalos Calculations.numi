@@ -1,0 +1,19 @@
+# iTalos
+
+## HSYNC
+HorizontalFrontPorch = 16 pixels = 16 px
+HSYNCPulse = 96 pixels = 96 px
+HorizontalBackPorch = 48 pixels = 48 px
+VisiblePixels = 640 pixels = 640 px
+
+HSYNCCounter = HorizontalFrontPorch + HSYNCPulse + HorizontalBackPorch + VisiblePixels = 800 px
+
+## VSYNC
+VerticalFrontPorch = 12 rows = 12
+VSYNCPulse = 2 rows = 2
+VerticalBackPorch = 35 rows = 35
+VisibleRows = 400 rows = 400
+
+VSYNCCounter = VerticalFrontPorch + VSYNCPulse + VerticalBackPorch + VisibleRows = 449
+
+
