@@ -48,7 +48,6 @@ module Robot_Arm_Controller(
 			8'h15 : limit = 5; //Q(uarterly extended)
 			8'h33 : limit = 6; //H(alf extended)
 			8'h22 : limit = 8; //(e)X(tended)
-			default : limit = 4;
 		endcase
 	 
 	 end 

@@ -9,21 +9,30 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module Mask_Producer(
-    input Pixelclock,
+	 input Pixelclock,
 	 input reset,
+	 input check,
 	 input [7:0] character,
     input [9:0] X,
-    input [8:0] Y,
+    input [9:0] Y,
 	 output reg mask
     );
 	 
-	 always @(posedge Pixelclock or posedge reset) 
-	 begin 
+	 reg [7:0] valid_character;
 	 
-		if (reset) mask = 0;
-		else
+	 always @(posedge Pixelclock or posedge reset)
+	 begin 
+		if (reset) valid_character = 0;
+		else if (check) valid_character = character;
+	 end
+	 
+	 always @(negedge Pixelclock or posedge reset) 
+	 begin 
+		if (reset) mask=0;
+	   else
 		begin
-			case (character)
+			mask=0;
+			case (valid_character)
 				8'h2b : //F
 				begin
 					if (X>=361 && X<=365 && Y>=212 && Y<=231 ||
@@ -64,9 +73,8 @@ module Mask_Producer(
 				end
 				
 				default : mask = 0;
-				
 			endcase
-		end
+		  end
 	 end 
 
 endmodule

@@ -29,7 +29,6 @@ module HSYNC_Provider(
 		if (reset) 
 		begin
 			counter <= 0;
-			X <= 0;
 		end
 		else if (enable)
 		begin
@@ -38,11 +37,22 @@ module HSYNC_Provider(
 				  counter <= 0;
 			else counter <= counter + 1;
 			
+		end
+	 end
+	 
+	 
+	 always @(posedge Pixelclock or posedge reset)
+	 begin 
+		if (reset) X<=0;
+		else if (enable)
+		
+		begin
 			if (counter < (HorizontalFrontPorch + HSYNCPulse + HorizontalBackPorch))
 				  X <= 0 ;
 			else X <= X+1;
 		end
-	 end
+	 
+	 end 
 	 
 	 assign HSYNC = ((counter >= HorizontalFrontPorch) && (counter < HorizontalFrontPorch + HSYNCPulse))? 0 : 1;
 		

@@ -1,5 +1,6 @@
-module kbd_protocol (reset, clk, ps2clk, ps2data, scancode);
+module kbd_protocol (reset, clk, ps2clk, ps2data, scancode, check);
   input        reset, clk, ps2clk, ps2data;
+  output reg check;
   output [7:0] scancode;
   reg    [7:0] scancode;
   
@@ -30,9 +31,11 @@ module kbd_protocol (reset, clk, ps2clk, ps2data, scancode);
         scancode <= 8'd0;
         shift    <= 10'd0;
         f0       <= 1'b0;
+		  check =0;
       end  
      else if (fall_edge)
          begin
+			  check=0;
            if (cnt == 4'd10) // we just received what should be the stop bit
              begin
                cnt <= 0;
@@ -41,6 +44,11 @@ module kbd_protocol (reset, clk, ps2clk, ps2data, scancode);
                    if (f0) // following a scancode of f0. So a key is released ! 
                      begin
                        scancode <= shift[8:1];
+							  
+							  //char check
+							  check=0;
+							  if (shift[8:1]== 8'h2b || shift[8:1]== 8'h15|| shift[8:1]== 8'h33 || shift[8:1] ==8'h22) check = 1;
+							  
                        f0 <= 0;
                      end
                     else if (shift[8:1] == 8'hF0) f0 <= 1'b1;

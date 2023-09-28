@@ -12,14 +12,11 @@
 module Colouriser(
     input mask,
     input [2:0] R,
-    input [2:0] G,
-    input [2:0] B,
+	 input [2:0] G,
+	 input [2:0] B,
 	 output [8:0] RGB_out
     );
 	 
-	 
 	 assign RGB_out = {mask*R, mask*G, mask*B};
-
-
-
-endmodule
+	 
+	 endmodule

@@ -23,11 +23,11 @@ wire [7:0] scan;
 wire Pixelclock;
 
 
-kbd_protocol Keyboard(reset, clk, ps2clk, ps2data, scan);
+kbd_protocol Keyboard(reset, clk, ps2clk, ps2data, scan, check);
 
 freqdiv4 Pixelclock_Provider(clk, reset, Pixelclock);
 
-Display_Controller Display(Pixelclock, reset, scan, HSYNC, VSYNC, RGB_out);
+Display_Controller Display(Pixelclock, reset, check, scan, HSYNC, VSYNC, RGB_out);
 
 Robot_Arm_Controller Talos(Pixelclock, reset, scan, Servo_PWM);
 

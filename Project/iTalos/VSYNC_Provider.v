@@ -13,7 +13,7 @@ module VSYNC_Provider(
     input enable,
 	 input reset,
     output VSYNC,
-	 output reg [8:0] Y
+	 output reg [9:0] Y
     );
 	 
 	 parameter VerticalFrontPorch = 12; 
@@ -21,7 +21,7 @@ module VSYNC_Provider(
 	 parameter VerticalBackPorch = 35; 
 	 parameter VisibleRows = 400; 
 	 
-	 reg [8:0] counter;
+	 reg [9:0] counter;
 	 
 	 always @(posedge new_row or posedge reset) 
 	 begin
@@ -29,7 +29,6 @@ module VSYNC_Provider(
 		if (reset) 
 		begin
 			counter <= 0;
-			Y <= 0;
 		end
 		else if (enable)
 		begin
@@ -37,12 +36,26 @@ module VSYNC_Provider(
 			if (counter == (VerticalFrontPorch + VSYNCPulse + VerticalBackPorch + VisibleRows - 1))
 				  counter <= 0;
 			else counter <= counter + 1;
-			
-			if (counter < (VerticalFrontPorch + VSYNCPulse + VerticalBackPorch))
-				  Y <= 0;
-			else Y <= Y+1;
+
 		end
 	 end
+	 
+	 
+	 	 always @(posedge new_row or posedge reset)
+	 begin 
+		if (reset)
+		begin
+			Y<=0;
+		end
+		else if (enable)
+		
+		begin
+			if (counter < (VerticalFrontPorch + VSYNCPulse + VerticalBackPorch))
+				  Y <= 0 ;
+			else Y <= Y+1;
+		end
+	 
+	 end 
 	 
 	 assign VSYNC = ((counter >= VerticalFrontPorch) && (counter < VerticalFrontPorch + VSYNCPulse))? 1 : 0;	 
 

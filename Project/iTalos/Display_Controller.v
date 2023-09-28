@@ -11,6 +11,7 @@
 module Display_Controller(
     input Pixelclock,
 	 input reset,
+	 input check,
 	 input [7:0] character,
     output HSYNC,
     output VSYNC,
@@ -18,12 +19,12 @@ module Display_Controller(
     );
 	 
 	 wire [9:0] X;
-	 wire [8:0] Y;
+	 wire [9:0] Y;
 	 wire mask;
 	 
 	 HSYNC_Provider iHSYNC(
 		.Pixelclock(Pixelclock),
-		.enable(1), 
+		.enable(Pixelclock), 
 		.reset(reset), 
 		.HSYNC(HSYNC), 
 		.X(X)
@@ -31,15 +32,16 @@ module Display_Controller(
 		
 	 VSYNC_Provider iVSYNC(
 		.new_row(~HSYNC), 
-		.enable(Pixelclock), 
+		.enable(1), 
 		.reset(reset), 
 		.VSYNC(VSYNC), 
 		.Y(Y)
 		);
 	 
 	 Mask_Producer iMask(
-		.Pixelclock(Pixelclock), 
+		.Pixelclock(Pixelclock),
 		.reset(reset),
+		.check(check),
 		.character(character), 
 		.X(X), 
 		.Y(Y), 
@@ -48,9 +50,9 @@ module Display_Controller(
 	 
 	 Colouriser iColouriser(
 		.mask(mask), 
-		.R(3'b111), 
-		.G(3'b111), 
-		.B(3'b111), 
+		.R(3'b111),
+		.G(3'b111),
+		.B(3'b111),
 		.RGB_out(RGB_out)
 		);
 
